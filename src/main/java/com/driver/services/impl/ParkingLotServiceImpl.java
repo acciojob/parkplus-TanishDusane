@@ -8,6 +8,8 @@ import com.driver.repository.SpotRepository;
 import com.driver.services.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +50,9 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         spot.setOccupied(Boolean.FALSE);
 
         List<Spot> spotList = parkingLot.getSpotList();
+        if(spotList==null){
+            spotList = new ArrayList<>();
+        }
         spotList.add(spot);
         parkingLot.setSpotList(spotList);
         parkingLotRepository1.save(parkingLot);
