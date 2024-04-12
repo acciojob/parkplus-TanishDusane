@@ -34,6 +34,11 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     @Override
     public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
         Optional<ParkingLot> parkingLotOptional = parkingLotRepository1.findById(parkingLotId);
+        if (!parkingLotOptional.isPresent()) {
+            // Handle the case where no parking lot with the given ID exists
+            // You can throw an exception, return null, or handle it in another way based on your requirement
+            throw new IllegalArgumentException("Parking lot with ID " + parkingLotId + " not found");
+        }
         ParkingLot parkingLot = parkingLotOptional.get();
 
         Spot spot = new Spot();
