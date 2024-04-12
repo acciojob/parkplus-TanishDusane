@@ -44,6 +44,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         for(Spot spot1 : spotList){
             int wheels = 0;
+
             if(spot1.getSpotType() == SpotType.FOUR_WHEELER){
                 wheels = 4;
             } else if (spot1.getSpotType() == SpotType.TWO_WHEELER) {
