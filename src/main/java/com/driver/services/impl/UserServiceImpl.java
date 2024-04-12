@@ -21,12 +21,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updatePassword(Integer userId, String password) {
         Optional<User> userOptional = userRepository4.findById(userId);
-        if(userOptional.isPresent()){
-            User user = userOptional.get();
-            user.setPassword(password);
-            return userRepository4.save(user);
-        }
-        return null;
+        User user = userOptional.get();
+        user.setPassword(password);
+        return userRepository4.save(user);
     }
 
     @Override

@@ -7,20 +7,20 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @OneToOne
     @JoinColumn
     private Reservation reservation;
 
-    boolean paymentCompleted;
-    PaymentMode paymentMode;
+    private boolean paymentCompleted;
+    private PaymentMode paymentMode;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

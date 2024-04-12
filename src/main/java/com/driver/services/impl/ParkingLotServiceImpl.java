@@ -13,10 +13,13 @@ import java.util.Optional;
 
 @Service
 public class ParkingLotServiceImpl implements ParkingLotService {
+
     @Autowired
     ParkingLotRepository parkingLotRepository1;
+
     @Autowired
     SpotRepository spotRepository1;
+
     @Override
     public ParkingLot addParkingLot(String name, String address) {
         ParkingLot parkingLot=new ParkingLot();
